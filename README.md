@@ -59,8 +59,6 @@ Install ***Webpack*** module for static building
         clean: true  // true: build files after deleting preivous built files
      },
 
-    
-    
     plugins: [
         new HTMLWebpackPlugin({
             template: path.resolve(__dirname, 'public', 'index.html')
@@ -84,7 +82,7 @@ Install ***Webpack*** module for static building
     "scripts": {
       "dev": "webpack --mode development",
       "start": "webpack-dev-server --mode development --open",
-      "build": "webpack --mode production",
+      "build": "webpack --mode production"
   },
   ```
 
@@ -109,3 +107,68 @@ Basic build settings
 where **command-name** is one of keys in the **scripts** field in ***/package.json***. e.g. **yarn build**.
 
 * Publish directory : the directory set in **output** field in the **/webpack.config.js** file. e.g. ***build***
+
+
+5. (Additionally) Webpack plugins
+
+  a. CSS plugin
+  ```
+  yarn add css-loader style-loader --dev
+  ```
+  Add followings to ***webpack.config.js***
+  ```javascript
+      module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
+        ]
+    }
+  ```
+
+  ***css-loader*** is for loading .css files and ***style-loader*** is for loading style sheets from DOM(Document Object Model).
+
+  b. Babel Plugin 
+  It is a plugin for converting scripts to modern style javascript compatible to all browsers.
+  ```
+  yarn add @babel/core babel-loader @babel/preset-env --dev
+  ```
+
+  * @babel/core       : engine package of Babel
+  * babel-loader      : a loader for webpack
+  * @babel/preset-env : Javascript -> ES5 converter
+  
+  It needs an extra config file, ***/babel.config.json***
+  ```JSON
+  // /babel.config.json
+  {
+    "presets": ["@babel/preset-env"]
+  }
+  ```
+
+  Add followings to ***webpack.config.js***
+  ```javascript
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      }
+    ]
+  }
+  ```
+
+  c. jQuery plugin
+
+  Add following to entry .js files (e.g. ***index.js***)
+  ```javascript
+  import $ from 'jquery';
+  ```
+  Add followings to ***webpack.config.js*** (module.exports field)
+  ```javascript
+      externals: {
+        jquery: 'jQuery',
+    }
+  ```

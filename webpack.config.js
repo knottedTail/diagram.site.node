@@ -18,5 +18,23 @@ module.exports = {
             template: path.resolve(__dirname, 'public', 'index.html')
         }),
     ],
+
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
+            }
+        ]
+    },
+
+    externals: {
+        jquery: 'jQuery',
+    }
 }
 
