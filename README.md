@@ -172,3 +172,20 @@ where **command-name** is one of keys in the **scripts** field in ***/package.js
         jquery: 'jQuery',
     }
   ```
+
+
+6. JSONStream
+
+  Install stream, JSONStream
+  ```
+  yarn add stream JSONStream
+  ```
+
+  To avoid fs module issue, add following to package.json
+  ```
+    "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  }
+  ```
