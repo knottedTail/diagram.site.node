@@ -181,11 +181,20 @@ where **command-name** is one of keys in the **scripts** field in ***/package.js
   yarn add stream JSONStream
   ```
 
-  To avoid fs module issue, add following to package.json
+  To avoid fs module error, add following to package.json
   ```
     "browser": {
     "fs": false,
     "path": false,
     "os": false
   }
+  ```
+
+  To avoid Buffer error, install buffer package
+  ```
+  yarn add buffer
+  ```
+  and add followings to entry javascript
+  ```
+  window.Buffer = require('buffer/').Buffer; 
   ```

@@ -1,6 +1,7 @@
 // src/index.js
 console.log("HTML test")
- 
+window.Buffer = require('buffer/').Buffer; 
+
 var fs = require('fs'),
     JSONStream = require('JSONStream');
 
