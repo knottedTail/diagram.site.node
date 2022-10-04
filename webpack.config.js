@@ -1,4 +1,5 @@
 // webpack.config.js
+const CopyPlugin = require("copy-webpack-plugin")
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const path = require('path')
 module.exports = {
@@ -17,6 +18,13 @@ module.exports = {
         new HTMLWebpackPlugin({
             template: path.resolve(__dirname, 'public', 'index.html')
         }),
+        new CopyPlugin({
+            patterns : [
+              { from : 'data' to : 'data'}
+            ]
+        })
+
+        
     ],
 
     module: {

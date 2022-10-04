@@ -173,15 +173,35 @@ where **command-name** is one of keys in the **scripts** field in ***/package.js
     }
   ```
 
+  d. copy plugin
+
+  A plugin for copying static files.
+  ```
+  yarn add copy-webpack-plugin --dev
+  ```
+  Add followings to ***webpack.config.js*** 
+  ```javascript
+  const CopyPlugin = require("copy-webpack-plugin")
+  ```
+  and to the **plugin** field,
+  ```javascript
+  new CopyPlugin({
+      patterns : [
+        { from : 'data' to : 'data'}
+      ]
+  })
+  ```
+  All the files in ***/data*** folder will be copied to ***/build/data*** when it builds for the above example.
+
 
 6. JSONStream
 
-  Install stream, JSONStream
+  * Install stream, JSONStream
   ```
   yarn add stream JSONStream
   ```
 
-  To avoid fs module error, add following to package.json
+  * To avoid fs module error, add following to package.json
   ```
     "browser": {
     "fs": false,
@@ -190,7 +210,7 @@ where **command-name** is one of keys in the **scripts** field in ***/package.js
   }
   ```
 
-  To avoid Buffer error, install buffer package
+  * To avoid Buffer error, install buffer package
   ```
   yarn add buffer
   ```
@@ -198,3 +218,12 @@ where **command-name** is one of keys in the **scripts** field in ***/package.js
   ```
   window.Buffer = require('buffer/').Buffer; 
   ```
+
+  * for JSONStream example:
+  ```
+  yarn add request event-stream assert util crypto-browserify url querystring-es3 stream-http https-browserify path-browserify
+  ```
+
+  * ~~web-streams-node: a bridge between WHATWG streams and NodeJS streams~~ NOT WORKING (from the importing)
+
+  * ~~stream-json~~ NOT WORKING (class extends value undefined)
