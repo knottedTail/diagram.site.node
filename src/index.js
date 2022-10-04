@@ -1,13 +1,13 @@
 window.Buffer = require('buffer/').Buffer; 
 
 var JSONStream = require('JSONStream');
-var stream = require('stream-browserify');
-var test = new stream();
-console.log(test.toWeb);
-console.log(stream.Readable);
-console.log(new stream());
-console.log(stream.Readable.toWeb);
-console.log(JSONStream.parse('*.geo'));
+// var stream = require('stream-browserify');
+// var test = new stream();
+// console.log(test.toWeb);
+// console.log(stream.Readable);
+// console.log(new stream());
+// console.log(stream.Readable.toWeb);
+// console.log(JSONStream.parse('*.geo'));
 
 // var nodefetch = require('node-fetch');
 // console.log(nodefetch);
@@ -50,7 +50,8 @@ console.log(JSONStream.parse('*.geo'));
 // // console.log(request({url: 'https://jsonplaceholder.typicode.com/todos/1'}))
 
 fetch('https://jsonplaceholder.typicode.com/todos/1')
-  .then(response => console.log(response.body));
+  .then(response => console.log(response.body))
+  .catch(console.log);
   // .then(body => {
   //   const reader = body.getReader();
   //   console.log(reader);
