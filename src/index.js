@@ -1,5 +1,7 @@
 window.Buffer = require('buffer/').Buffer; 
 var JSONStream = require('JSONStream');
+var nodeToWebStream = require('readable-stream-node-to-web');
+
 
 // var stream = require('stream-browserify');
 // var test = new stream();
@@ -49,7 +51,11 @@ var JSONStream = require('JSONStream');
 
 // // console.log(request({url: 'https://jsonplaceholder.typicode.com/todos/1'}))
 fetch('https://main--profound-quokka-7e0251.netlify.app/data/components.json')
-  .then(response => console.log(response.body))
+  .then(response => response.body)
+  .then(function(body) {
+    console.log(body);
+    console.log(nodeToWebStream(body));
+  })
   .catch(console.log);
 
 fetch('https://jsonplaceholder.typicode.com/todos/1')

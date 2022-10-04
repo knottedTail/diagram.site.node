@@ -27,6 +27,7 @@
     "JSONStream": "^1.3.5",
     "buffer": "^6.0.3",
     "jquery": "^3.6.1",
+    "readable-stream-node-to-web": "^1.0.1",
     "stream": "^0.0.2",
     "stream-browserify": "^3.0.0"
   }
