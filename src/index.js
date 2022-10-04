@@ -48,6 +48,7 @@ var nodeToWebStream = require('readable-stream-node-to-web');
 // //   }))
 
 
+var parser = JSONStream.parse('*.geo');
 
 // // console.log(request({url: 'https://jsonplaceholder.typicode.com/todos/1'}))
 fetch('https://main--profound-quokka-7e0251.netlify.app/data/components.json')
@@ -55,7 +56,7 @@ fetch('https://main--profound-quokka-7e0251.netlify.app/data/components.json')
   .then(function(body) {
     console.log(body);
     console.log("CAT");
-    console.log(nodeToWebStream(body));
+    console.log(nodeToWebStream(parser));
     console.log("RAT");
   })
   .catch(console.log);
