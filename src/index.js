@@ -54,13 +54,15 @@ fetch('https://main--profound-quokka-7e0251.netlify.app/data/components.json')
   .then(response => response.body)
   .then(function(body) {
     console.log(body);
+    console.log("CAT");
     console.log(nodeToWebStream(body));
+    console.log("RAT");
   })
   .catch(console.log);
 
-fetch('https://jsonplaceholder.typicode.com/todos/1')
-  .then(response => console.log(response.body))
-  .catch(console.log);
+// fetch('https://jsonplaceholder.typicode.com/todos/1')
+//   .then(response => console.log(response.body))
+//   .catch(console.log);
 
 // fetch('https://jsonplaceholder.typicode.com/todos/1')
 //   .then(response => console.log(response.body))
